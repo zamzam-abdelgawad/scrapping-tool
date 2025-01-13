@@ -1,0 +1,31 @@
+<div class="card">
+  <!-- Photo Grid -->
+  <div *ngIf="urlData" class="grid" style="max-width: 800px; margin: auto;">
+    <div *ngFor="let item of urlData; let index = index" class="col-3">
+      <img [src]="item.urls" alt="image.alt" style="cursor: pointer; width: 100%; height: auto;"
+        (click)="imageClick(index)" />
+
+      <!-- Checkbox for each image -->
+      <p-checkbox [(ngModel)]="item.isSelected" [binary]="true" [inputId]="'checkbox-' + index"
+        [name]="'checkbox-' + index" (onChange)="unSelected(item.id)">
+      </p-checkbox>
+    </div>
+  </div>
+
+  <!-- Galleria Component -->
+  <p-galleria [value]="urlData" [visible]="displayCustom" [(activeIndex)]="activeIndex"
+    [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '850px' }" [numVisible]="7"
+    [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false"
+    (onChange)="onImagesChange($event)" (onVisibleChange)="onVisibleChange($event)">
+    <!-- <ng-template pTemplate="item" let-item>
+      <img [src]="item.urls" alt="{{ item.alt }}" style="width: 100%; display: block;" />
+    </ng-template> -->
+  </p-galleria>
+</div>
+
+<div class="card flex justify-content-center gap-3">
+  <p-button label="New Scrapping" (click)="goToUpload()" />
+  <p-button label="Download" icon="pi pi-check" [loading]="loading" (onClick)="load()" />
+  <p-button label="Remove" icon="pi pi-check" (click)="remove()"/>
+</div>
+
