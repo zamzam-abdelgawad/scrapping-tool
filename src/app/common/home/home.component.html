@@ -1,0 +1,23 @@
+<div class="card-container">
+  <p-card class="card">
+    <ng-template pTemplate="header">
+      <div class="content">
+        <img alt="Card" src="assets/img/scrapping-img.jpg" class="img"/>
+        <div class="info">
+          <h1>Scrapping Tool</h1>
+          <p>
+            Old Project: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt<br/>
+            New Project: quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+          </p>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div style="display: flex; align-items: center;   justify-content: center;gap: 5rem;">
+        <p-button label="Old Project" [outlined]="true"></p-button>
+        <p-button label="New Project" (click)="goToUpload()"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

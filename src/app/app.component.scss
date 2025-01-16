@@ -1,1 +1,28 @@
 @import "primeicons/primeicons.css";
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 15px;
+  width: 100%;
+  box-sizing: border-box;
+
+  // Breakpoints for responsiveness
+  @media (max-width: 1200px) {
+    max-width: 1000px;
+  }
+
+  @media (max-width: 992px) {
+    max-width: 768px;
+    padding: 10px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  @media (max-width: 576px) {
+    padding: 5px;
+  }
+}
+

@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // Default to 4 columns on larger screens
+  gap: 1rem;
+  max-width: 100%;
+  margin: auto;
+
+  .col-3 {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .image-wrapper {
+    position: relative; // Set the wrapper to relative positioning for checkbox
+    img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    p-checkbox {
+      position: absolute;
+      bottom: 5px; // Position checkbox at the bottom
+      left: 5px;   // Position checkbox at the left
+    }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr); // 3 columns for medium screens
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns for smaller screens
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on mobile screens
+  }
+}

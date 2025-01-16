@@ -1,0 +1,26 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+}
+.card{
+  // padding: 1rem;
+  // box-shadow: none !important;
+  // background: blue !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+.content{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-content: center;
+}
+.img{
+  width: 25rem;
+}
+.info{
+  margin: auto 0;
+  padding: 1rem;
+}

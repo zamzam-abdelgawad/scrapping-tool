@@ -28,4 +28,9 @@ export class DataSharingService {
       })
     )
   }
+
+  sendDataToBackend(data: any[]): Observable<any> {
+    const apiUrl = 'https://your-backend-api.com/download';  // Replace with your API URL
+    return this.http.post(apiUrl, data);
+  }
 }

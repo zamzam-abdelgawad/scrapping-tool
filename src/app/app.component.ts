@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { registerLocaleData } from '@angular/common';
+import localeAr from '@angular/common/locales/ar';
+import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import {TranslateModule} from "@ngx-translate/core";
-import {TranslateService} from "@ngx-translate/core";
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(localeAr);
 
 @Component({
   selector: 'app-root',
@@ -15,18 +16,22 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'scrapping-tool';
-
   constructor(private primengConfig: PrimeNGConfig, private translate: TranslateService) {
-    this.translate.addLangs(['de', 'en']);
+    this.translate.addLangs(['en', 'ar']);
     this.translate.setDefaultLang('en');
-    this.translate.use(this.translate.getBrowserLang() || "en");
+
+    const browserLang = this.translate.getBrowserLang();
+    const storedLang = localStorage.getItem('lang');
+
+    this.translate.use(storedLang || browserLang || 'en');
   }
 
   useLanguage(language: string): void {
     this.translate.use(language);
-}
-    ngOnInit() {
-        this.primengConfig.ripple = true;
-    }
+    localStorage.setItem('lang', language);
+  }
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
 }
